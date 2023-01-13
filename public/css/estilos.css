@@ -1,0 +1,25 @@
+
+body {
+    position: relative ;
+    left: 37%;
+}
+.form-control2 {
+    width: 500px;
+    height: 100px;
+}
+.list-group {
+    width: 500px;
+}
+.btn-warning{
+    position: relative ;
+    left: 22%;
+}
+.frase {
+    width: 500px;
+}
+.edge-green{
+    border: 1px solid green;
+}
+.edge-red{
+    border: 1px solid red;
+}
