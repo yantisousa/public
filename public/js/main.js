@@ -1,29 +1,37 @@
-$(document).ready(function () {
-    wordsCounter();
-    startupTiming();
-    ValidationEdge();
-    restart();
-    $('#BotaoDoPlacar').click(function(){
-        MostrarPlacar();
-    });
+    var tempoInicial = $('#contador').text();
+    var campo = $("#campo-digitacao");
+    $(document).ready(function () {
+        wordsCounter();
+        tamanhoFrasePrincipal();
+        startupTiming();
+        ValidationEdge();
+        restart();
+        $('#BotaoDoPlacar').click(function(){
+            MostrarPlacar();
+        });
+        
+    })
     
-})
-
-var tempoInicial = $('#contador').text();
-var frase = $('.frase').text();
-
-var numPalavras = frase.split(" ").length;
-var tamanhoFrase = $("#tamanho-frase");
-tamanhoFrase.text(numPalavras);
-var campo = $("#campo-digitacao");
+    function tamanhoFrasePrincipal(){
+        var frase = $('.frase').text();
+        var tamanhoFrase = $("#tamanho-frase");
+        var numPalavras = frase.split(" ").length;
+        tamanhoFrase.text(numPalavras);
+    }
+    
 function wordsCounter() {
-
+    
+    
     campo.on("input", function (e) {
         var conteudo = campo.val();
         var qtdPalavras = conteudo.split(/\S+/).length - 1;
         $("#contador-palavras").text(qtdPalavras);
         $("#contador-caracteres").text(conteudo.length);
     });
+}
+function AtualizaTempoComNovaFrase(tempo){
+   tempoInicial =  tempo; 
+   $('#contador').text(tempo) 
 }
 function startupTiming() {
     var time = $('#contador').text();
